@@ -6,10 +6,17 @@ metadata:
     chart: "{{ .Chart.Name }}"
     release: "{{ .Release.Name }}"
 data:
-  capabilities: |
-    {{ .Capabilities | toYaml | indent 4 }}
-  {{- if .Capabilities.APIVersions.Has "batch/v1" }}  
+  cap_apiversions: |
+{{ .Capabilities.APIVersions | toYaml | indent 4 }}
+
+  cap_kubeversion: |
+{{ .Capabilities.KubeVersion | toYaml | indent 4 }}  
+
+  cap_helmversion: |
+{{ .Capabilities.HelmVersion | toYaml | indent 4 }}  
+
+{{- if .Capabilities.HelmVersion "batch/v1" }}      
   apiversion_detected: "batch/v1"
-  {{- else }}
+{{- else }}
   apiVersion_not_detected: "N/A"  
-  {{- end }}
+{{- end }}
