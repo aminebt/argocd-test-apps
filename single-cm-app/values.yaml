@@ -1,0 +1,3 @@
+argocdTest:
+  config:
+    test_key: "my_test_value"
