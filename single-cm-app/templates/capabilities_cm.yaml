@@ -6,8 +6,9 @@ metadata:
     chart: "{{ .Chart.Name }}"
     release: "{{ .Release.Name }}"
 data:
+  capabilitieS: {{ .Capabilities }}
   {{- if .Capabilities.APIVersions.Has "batch/v1" }}  
-  apiversion_detected: "batch/v1alpha1"
+  apiversion_detected: "batch/v1"
   {{- else }}
   apiVersion_not_detected: "N/A"  
   {{- end }}
