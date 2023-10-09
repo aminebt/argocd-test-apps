@@ -15,7 +15,7 @@ data:
   cap_helmversion: |
 {{ .Capabilities.HelmVersion | toYaml | indent 4 }}  
 
-{{- if .Capabilities.HelmVersion "batch/v1" }}      
+{{- if .Capabilities.APIVersions.Has "batch/v1" }}      
   apiversion_detected: "batch/v1"
 {{- else }}
   apiVersion_not_detected: "N/A"  
