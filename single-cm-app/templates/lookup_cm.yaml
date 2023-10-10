@@ -6,7 +6,7 @@ metadata:
     chart: "{{ .Chart.Name }}"
     release: "{{ .Release.Name }}"
 data:
-  {{- $secret := (lookup "v1" "Secret" argocd argocd-secret) }}
+  {{- $secret := (lookup "v1" "Secret" "argocd" "argocd-secret") }}
   {{- if $secret }} ## rotate secrets with secretProvider help if exists
   secret-was-looked-up: "true" ## created in the sws-secrets-provider helm chart
   {{- else }}
