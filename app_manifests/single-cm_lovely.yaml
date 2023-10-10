@@ -12,7 +12,7 @@ spec:
     repoURL: 'https://github.com/aminebt/argocd-test-apps.git'
     targetRevision: HEAD
     plugin:
-      name: lovely-vault
+      name: pure-helm
       env:
         - name: FOO
           value: bar
