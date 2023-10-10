@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: single-cm-with-cmp
+  name: hello-world-lovely
   namespace: argocd
 spec:
   destination:

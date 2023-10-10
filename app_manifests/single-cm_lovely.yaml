@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: single-cm-lovely
+  namespace: argocd
+spec:
+  destination:
+    namespace: lovely
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: single-cm-app
+    repoURL: 'https://github.com/aminebt/argocd-test-apps.git'
+    targetRevision: HEAD
+    plugin:
+      name: lovely-vault
+      env:
+        - name: FOO
+          value: bar
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - PrunePropagationPolicy=background
+      - CreateNamespace=true
