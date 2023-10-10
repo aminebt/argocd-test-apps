@@ -6,10 +6,10 @@ metadata:
     chart: "{{ .Chart.Name }}"
     release: "{{ .Release.Name }}"
 data:
-  cap_apiversions: |
+  cap_apiversions: 
 {{ .Capabilities.APIVersions | toYaml | indent 4 }}
 
-  cap_kubeversion: |
+  cap_kubeversion: 
 {{ .Capabilities.KubeVersion | toYaml | indent 4 }}  
 
 {{- if .Capabilities.APIVersions.Has "batch/v1" }}      

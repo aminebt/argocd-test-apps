@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/instance: lovely
+  name: lovely-test
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lovely-test
+  template:
+    metadata:
+      labels:
+        app: lovely-test
+    spec:
+      containers:
+      - image: ghcr.io/crumbhole/argocd-lovely-plugin:latest
+        imagePullPolicy: IfNotPresent
+        name: lovely-test
+        command: ["sleep"] 
+        args: ["3600"]
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
