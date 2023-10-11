@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: argocd-test-config
+  name: "argocd-test-config-{{ .Release.Name }}"
   labels:
     chart: "{{ .Chart.Name }}"
     release: "{{ .Release.Name }}"
