@@ -5,7 +5,7 @@ metadata:
   namespace: argocd
 spec:
   destination:
-    namespace: lovely
+    namespace: no_plugin
     server: 'https://kubernetes.default.svc'
   source:
     path: single-cm-app
